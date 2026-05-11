@@ -1,0 +1,48 @@
+import { Project } from '../types';
+
+export const projects: Project[] = [
+  {
+    id: 'avonic',
+    title: 'AVONIC',
+    tagline: 'Smarter Worm Health. Better Compost.',
+    role: ['Project Manager', 'Researcher', 'Lead Full Stack Dev'],
+    type: 'deep',
+    url: 'https://avonic.online',
+    tags: ['IoT', 'Full Stack', 'Product Design', 'Research'],
+    year: 2025,
+    description: 'Filipino farmers were losing worms to bad monitoring. No data. Gut feel as the only tool. Built sensors. Built the dashboard. Led the research. Figured it out.',
+  },
+  {
+    id: 'ember',
+    title: 'EMBER',
+    tagline: 'Fire detection before the room knows.',
+    role: ['Hardware Engineer', 'Full Stack Dev'],
+    type: 'quick',
+    url: '',
+    tags: ['Embedded Systems', 'Computer Vision', 'Full Stack'],
+    year: 2024,
+    description: 'ESP32 + TinyML reads smoke and flame before a room does. Local web dashboard, live camera feed, servo-controlled pan. Hardware-first, software where it counts.',
+  },
+  {
+    id: 'lens',
+    title: 'LENS',
+    tagline: 'Multi-branch analytics, unified.',
+    role: ['Full Stack Dev', 'Data Engineer'],
+    type: 'quick',
+    url: '',
+    tags: ['Data Engineering', 'Forecasting', 'Internal Tooling'],
+    year: 2024,
+    description: "Every branch sees their own numbers. HQ sees everything. Holt-Winters forecasting so you're not just reading the past.",
+  },
+  {
+    id: 'gate',
+    title: 'GATE',
+    tagline: 'Attendance that just works.',
+    role: ['Full Stack Dev', 'Hardware Integration'],
+    type: 'quick',
+    url: '',
+    tags: ['Hardware Integration', 'Full Stack', 'Institutional Systems'],
+    year: 2023,
+    description: "RFID attendance built into a college's existing student ID infrastructure. No new cards. No friction. Just works.",
+  },
+];
