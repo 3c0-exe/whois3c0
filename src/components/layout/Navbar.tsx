@@ -1,41 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-const tickerItems = [
-  "3c0", "JERICO SANCHEZ", "FULL STACK DEV", "MEMBER OF ODDS",
-  "FLUENT IN UNFAMILIAR", "BAUHAUS BONES",
-];
-const tickerLoop = [...tickerItems, ...tickerItems, ...tickerItems];
-
 export default function Navbar() {
   return (
     <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100 }}>
-      {/* Ticker */}
-      <div style={{ background: "#111", overflow: "hidden", padding: "8px 0" }}>
-        <motion.div
-          style={{ display: "flex", gap: "40px", whiteSpace: "nowrap" }}
-          animate={{ x: ["0%", "-33.33%"] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        >
-          {tickerLoop.map((item, i) => (
-            <span
-              key={i}
-              style={{
-                fontSize: "0.6rem",
-                letterSpacing: "0.2em",
-                fontWeight: 500,
-                color: "#F2EDE4",
-                textTransform: "uppercase",
-                flexShrink: 0,
-              }}
-            >
-              {item} <span style={{ color: "#F5C800", opacity: 0.5 }}>·</span>
-            </span>
-          ))}
-        </motion.div>
-      </div>
-
       {/* Nav */}
       <nav
         style={{

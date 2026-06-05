@@ -5,39 +5,39 @@ import { useRef, useState } from "react";
 
 const otherWork = [
   {
-    code: "EMBER",
-    year: "2024",
-    tags: "Embedded Systems · Computer Vision · Full Stack",
-    problem: "Computer vision systems were slow and inaccurate for real-time embedded applications.",
-    solution: "Optimized inference pipeline with custom model pruning and edge deployment.",
-    stat: "87",
-    statLabel: "% inference speed improvement",
-    roles: ["Lead Dev", "ML Engineer"],
-    projectTags: ["Embedded Systems", "Computer Vision", "Full Stack"],
+    code: "THEODORE",
+    year: "2025",
+    tags: "Embedded Systems · IoT · Fire Safety",
+    problem: "Schools had no real-time fire detection system that could alert admins and emergency services simultaneously.",
+    solution: "ESP32-based fire alarm with 3-sensor verification. Any sensor threshold breach triggers automated voicemail to School Admin; critical levels alert BFP directly.",
+    stat: "3",
+    statLabel: "sensor verification layer",
+    roles: ["Project Manager", "Full Stack Developer"],
+    projectTags: ["Embedded Systems", "IoT", "Fire Safety"],
     link: "#",
   },
   {
-    code: "LENS",
-    year: "2024",
-    tags: "Data Engineering · Forecasting · Internal Tooling",
-    problem: "Data queries took minutes. No real-time insights into pipeline performance.",
-    solution: "Built query aggregation layer with predictive caching and materialized views.",
-    stat: "12",
-    statLabel: "x query speed increase",
-    roles: ["Lead Dev", "Data Engineer"],
-    projectTags: ["Data Engineering", "Forecasting", "Internal Tooling"],
-    link: "#",
-  },
-  {
-    code: "GATE",
-    year: "2023",
-    tags: "Hardware Integration · Full Stack · Institutional",
-    problem: "Manual hardware monitoring was unreliable. System downtime went undetected.",
-    solution: "Built end-to-end monitoring dashboard with alerting and automated failover.",
+    code: "CLASSGUARD",
+    year: "2025-2026",
+    tags: "RFID · Laravel · Attendance",
+    problem: "Manual student attendance tracking was time-consuming and error-prone.",
+    solution: "PHP Laravel + ESP32-based RFID attendance system with comprehensive admin and professor dashboards. Real-time tracking, reporting, and student management.",
     stat: "100",
-    statLabel: "% uptime across infrastructure",
-    roles: ["Lead Dev", "Hardware Integration"],
-    projectTags: ["Hardware Integration", "Full Stack", "Institutional"],
+    statLabel: "% automated attendance",
+    roles: ["Full Stack Developer"],
+    projectTags: ["RFID", "Laravel", "PHP", "Attendance System"],
+    link: "#",
+  },
+  {
+    code: "PRISMA",
+    year: "2025",
+    tags: "Analytics · Holt-Winters · Multi-branch",
+    problem: "Business owners had no unified view of branch performance across locations.",
+    solution: "Multi-branch analytics platform using Holt-Winters forecasting. Single dashboard for business owners, data analysts, admins, and corp employees to track performance metrics.",
+    stat: "∞",
+    statLabel: "scalable to any branch count",
+    roles: ["Full Stack Developer", "Data Engineer"],
+    projectTags: ["Analytics", "Holt-Winters", "Forecasting", "Multi-branch"],
     link: "#",
   },
 ];
@@ -88,10 +88,10 @@ export default function Work() {
 
             <div style={{ marginTop: "32px" }}>
               <div style={{ fontWeight: 800, fontSize: "3rem", color: "#111", lineHeight: 1 }}>
-                30<span style={{ color: "#C8391D" }}>%</span>
+                80<span style={{ color: "#C8391D" }}>%</span>
               </div>
               <p style={{ color: "#9B9486", fontSize: "0.68rem", lineHeight: 1.5, marginTop: "6px" }}>
-                worm mortality rate<br />before AVONIC
+                survival rate<br />with AVONIC
               </p>
             </div>
 
@@ -109,15 +109,16 @@ export default function Work() {
               AVONIC
             </h2>
             <p style={{ fontSize: "1.05rem", color: "#111", lineHeight: 1.7, marginBottom: "14px" }}>
-              Filipino farmers were losing worms to bad monitoring.
+              Vermicomposting farmers losing entire batches. No visibility. No data. Just gut feel.
             </p>
             <p style={{ fontSize: "0.92rem", color: "#9B9486", lineHeight: 1.7, marginBottom: "14px" }}>
-              No data. Gut feel as the only tool. Worm health is invisible until
-              it&apos;s too late — by then, an entire vermicomposting batch is gone.
+              Built an autonomous IoT system: DHT22, MQ135, soil moisture, water temp sensors, peltier cooling. Dual ESP32 architecture (Master + Slave) with online/offline deployment—Railway for web, ESP32 for local hosting. Automatic Mode runs completely self-sufficient.
+            </p>
+            <p style={{ fontSize: "0.92rem", color: "#9B9486", lineHeight: 1.7, marginBottom: "14px" }}>
+              The real innovation: custom UI designed for farmer literacy, not tech literacy. Used Meralco bill graphs as reference—visual language farmers already understand. Fully localized, handdrawn art, mobile-responsive from ground up.
             </p>
             <p style={{ fontSize: "0.92rem", color: "#9B9486", lineHeight: 1.7 }}>
-              Built sensors. Built the dashboard. Led the research. Figured it out.
-              Didn&apos;t know how to build IoT before this. Apparently that wasn&apos;t a reason not to.
+              Best Capstone Award - Hardware Category. Seeking sponsors to scale.
             </p>
           </div>
 
@@ -131,6 +132,10 @@ export default function Work() {
             </div>
             <p style={{ fontSize: "0.55rem", letterSpacing: "0.18em", color: "#9B9486", textTransform: "uppercase", marginBottom: "4px" }}>Year</p>
             <p style={{ fontWeight: 700, color: "#111", marginBottom: "20px" }}>2025</p>
+            <p style={{ fontSize: "0.55rem", letterSpacing: "0.18em", color: "#9B9486", textTransform: "uppercase", marginBottom: "4px" }}>Award</p>
+            <p style={{ fontWeight: 700, color: "#111", marginBottom: "20px", fontSize: "0.92rem" }}>Best Capstone<br />Hardware Category</p>
+            <p style={{ fontSize: "0.55rem", letterSpacing: "0.18em", color: "#9B9486", textTransform: "uppercase", marginBottom: "4px" }}>Status</p>
+            <p style={{ fontWeight: 700, color: "#C8391D", marginBottom: "20px", fontSize: "0.92rem" }}>Seeking Sponsors</p>
             <a href="https://avonic.online" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.72rem", color: "#111", textDecoration: "none", borderBottom: "1px solid rgba(17,17,17,0.25)" }}>
               avonic.online ↗
             </a>
@@ -217,7 +222,7 @@ export default function Work() {
                       <div style={{ marginTop: "0px" }}>
                         <div style={{ fontWeight: 800, fontSize: "3rem", color: "#111", lineHeight: 1 }}>
                           {project.stat}
-                          <span style={{ color: "#C8391D" }}>%</span>
+                          <span style={{ color: "#C8391D" }}>{project.stat === "∞" ? "" : "%"}</span>
                         </div>
                         <p style={{ color: "#9B9486", fontSize: "0.68rem", lineHeight: 1.5, marginTop: "6px" }}>
                           {project.statLabel}
