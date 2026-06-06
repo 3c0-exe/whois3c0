@@ -50,49 +50,39 @@ export default function About() {
               ABOUT
             </div>
 
-            {/* Skills Web Diagram */}
-            <svg
-              viewBox="0 0 120 140"
-              style={{
-                marginTop: "28px",
-                width: "100px",
-                height: "100%",
-                maxHeight: isMobile ? "150px" : "auto",
-              }}
-            >
-              {/* Center circle */}
-              <circle cx="60" cy="70" r="8" fill="rgba(200, 57, 29, 0.8)" />
-              
-              {/* Frontend node (top-left) */}
-              <circle cx="30" cy="30" r="6" fill="rgba(255, 255, 255, 0.3)" />
-              <line x1="60" y1="70" x2="30" y2="30" stroke="rgba(200, 57, 29, 0.4)" strokeWidth="1" />
-              <text x="20" y="18" fontSize="9" fill="rgba(255,255,255,0.6)" textAnchor="middle">
-                Frontend
-              </text>
-              <text x="20" y="28" fontSize="8" fill="rgba(255,255,255,0.4)" textAnchor="middle">
-                React
-              </text>
-              
-              {/* Backend node (top-right) */}
-              <circle cx="90" cy="30" r="6" fill="rgba(255, 255, 255, 0.3)" />
-              <line x1="60" y1="70" x2="90" y2="30" stroke="rgba(200, 57, 29, 0.4)" strokeWidth="1" />
-              <text x="100" y="18" fontSize="9" fill="rgba(255,255,255,0.6)" textAnchor="middle">
-                Backend
-              </text>
-              <text x="100" y="28" fontSize="8" fill="rgba(255,255,255,0.4)" textAnchor="middle">
-                Node, Laravel
-              </text>
-              
-              {/* Hardware node (bottom) */}
-              <circle cx="60" cy="110" r="6" fill="rgba(255, 255, 255, 0.3)" />
-              <line x1="60" y1="70" x2="60" y2="110" stroke="rgba(200, 57, 29, 0.4)" strokeWidth="1" />
-              <text x="60" y="130" fontSize="9" fill="rgba(255,255,255,0.6)" textAnchor="middle">
-                Hardware
-              </text>
-              <text x="60" y="138" fontSize="8" fill="rgba(255,255,255,0.4)" textAnchor="middle">
-                ESP32, MQTT
-              </text>
-            </svg>
+            {/* Skill Bars */}
+            <div style={{ marginTop: "28px" }}>
+              {[
+                { name: "Frontend", level: 85, tech: "React" },
+                { name: "Backend", level: 80, tech: "Node, Laravel" },
+                { name: "Hardware", level: 75, tech: "ESP32, MQTT" },
+              ].map((skill) => (
+                <div key={skill.name} style={{ marginBottom: "20px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
+                    <p style={{ fontSize: "0.7rem", fontWeight: 600, color: "rgba(255,255,255,0.7)", textTransform: "uppercase", letterSpacing: "0.06em", margin: 0 }}>
+                      {skill.name}
+                    </p>
+                    <p style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.5)", margin: 0 }}>
+                      {skill.level}%
+                    </p>
+                  </div>
+                  <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.1)", borderRadius: "2px", overflow: "hidden" }}>
+                    <div
+                      style={{
+                        width: `${skill.level}%`,
+                        height: "100%",
+                        background: "#C8391D",
+                        borderRadius: "2px",
+                        transition: "width 0.6s ease-out",
+                      }}
+                    />
+                  </div>
+                  <p style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.4)", marginTop: "4px", margin: "4px 0 0 0" }}>
+                    {skill.tech}
+                  </p>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* CENTER: copy */}

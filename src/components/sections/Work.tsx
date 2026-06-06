@@ -160,12 +160,12 @@ export default function Work() {
             <p style={{ fontWeight: 700, color: "#111", marginBottom: "20px", fontSize: "0.92rem" }}>Best Capstone<br />Hardware Category</p>
             <p style={{ fontSize: "0.55rem", letterSpacing: "0.18em", color: "#9B9486", textTransform: "uppercase", marginBottom: "4px" }}>Status</p>
             <p style={{ fontWeight: 700, color: "#C8391D", marginBottom: "20px", fontSize: "0.92rem" }}>Seeking Sponsors</p>
-            <a href="https://avonic.online" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.72rem", color: "#111", textDecoration: "none", borderBottom: "1px solid rgba(17,17,17,0.25)" }}>
+            <a href="/avonic-dashboard.svg" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.72rem", color: "#111", textDecoration: "none", borderBottom: "1px solid rgba(17,17,17,0.25)" }}>
               avonic.online ↗
             </a>
-            <div style={{ marginTop: "28px", border: "1px solid rgba(17,17,17,0.15)", aspectRatio: "16/10", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: "0.62rem", color: "#9B9486" }}>[image / diagram]</span>
-            </div>
+            <a href="/avonic-page.png" target="_blank" rel="noopener noreferrer" style={{ display: "block", marginTop: "28px", border: "1px solid rgba(17,17,17,0.15)", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", transition: "opacity 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"} onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}>
+              <img src="/avonic-page.png" alt="AVONIC Dashboard" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </a>
           </div>
         </div>
       </div>
