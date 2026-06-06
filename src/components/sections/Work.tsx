@@ -286,9 +286,9 @@ export default function Work() {
                       <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.72rem", color: "#111", textDecoration: "none", borderBottom: "1px solid rgba(17,17,17,0.25)" }}>
                         {project.link} ↗
                       </a>
-                      <div style={{ marginTop: "28px", border: "1px solid rgba(17,17,17,0.15)", aspectRatio: "16/10", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <span style={{ fontSize: "0.62rem", color: "#9B9486" }}>[image / diagram]</span>
-                      </div>
+                      <a href={project.code === "LISAI" ? "/lisai-page.png" : project.link} target="_blank" rel="noopener noreferrer" style={{ display: "block", marginTop: "28px", border: "1px solid rgba(17,17,17,0.15)", aspectRatio: "16/10", overflow: "hidden", cursor: "pointer", transition: "opacity 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"} onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}>
+                        <img src={project.code === "LISAI" ? "/lisai-page.png" : "/placeholder.png"} alt={project.code} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -300,4 +300,4 @@ export default function Work() {
       </div>
     </section>
   );
-}
+} 
