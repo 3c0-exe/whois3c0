@@ -9,8 +9,11 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "3c0 — Jerico Sanchez",
+  title: "3c0 - Portfolio",
   description: "Full-stack developer. Former Multimedia Director. Member of ODDS. Fluent in unfamiliar.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
