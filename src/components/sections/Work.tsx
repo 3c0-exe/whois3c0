@@ -1,9 +1,21 @@
 "use client";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const otherWork = [
+  {
+    code: "LISAI",
+    year: "2026",
+    tags: "React · Vite · Tailwind · Bilingual",
+    problem: "Security firm needed a modern, bilingual website to showcase services and handle inquiries.",
+    solution: "Built with React (Vite) + Tailwind CSS. Bilingual interface (ENG/FIL) with responsive design. Comprehensive redesign handling daily traffic for commercial security operations.",
+    stat: "326",
+    statLabel: "hours OJT completed",
+    roles: ["Full Stack Developer"],
+    projectTags: ["React", "Vite", "Tailwind", "Bilingual"],
+    link: "#",
+  },
   {
     code: "THEODORE",
     year: "2025",
@@ -46,6 +58,16 @@ export default function Work() {
   const ledgerRef = useRef(null);
   const inView = useInView(ledgerRef, { once: true, margin: "-60px" });
   const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set());
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleProject = (code: string) => {
     const newSet = new Set(expandedProjects);
@@ -57,19 +79,19 @@ export default function Work() {
     setExpandedProjects(newSet);
   };
 
+  const gridStyles = isMobile
+    ? { display: "block" }
+    : { display: "grid", gridTemplateColumns: "160px 1fr 240px", gap: "0" };
+
   return (
     <section id="work" style={{ background: "#F2EDE4" }}>
       <div style={{ width: "100%", height: "3px", background: "#1B4FBE" }} />
 
+      {/* AVONIC LEAD PROJECT - MOBILE RESPONSIVE */}
       <div className="page-container" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "160px 1fr 240px",
-            gap: "0",
-          }}
-        >
-          <div style={{ paddingRight: "24px" }}>
+        <div style={gridStyles}>
+          {/* LEFT COLUMN */}
+          <div style={{ paddingRight: isMobile ? "0" : "24px", marginBottom: isMobile ? "28px" : "0" }}>
             <div
               style={{
                 background: "#C8391D",
@@ -104,7 +126,8 @@ export default function Work() {
             </div>
           </div>
 
-          <div style={{ borderLeft: "1px solid rgba(17,17,17,0.15)", paddingLeft: "40px", paddingRight: "32px" }}>
+          {/* CENTER COLUMN */}
+          <div style={{ borderLeft: isMobile ? "0" : "1px solid rgba(17,17,17,0.15)", paddingLeft: isMobile ? "0" : "40px", paddingRight: isMobile ? "0" : "32px", paddingTop: isMobile ? "28px" : "0", borderTop: isMobile ? "1px solid rgba(17,17,17,0.15)" : "none" }}>
             <h2 style={{ fontWeight: 800, fontSize: "clamp(2rem, 3.5vw, 3.2rem)", color: "#111", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "28px" }}>
               AVONIC
             </h2>
@@ -122,7 +145,8 @@ export default function Work() {
             </p>
           </div>
 
-          <div style={{ borderLeft: "1px solid rgba(17,17,17,0.15)", paddingLeft: "32px" }}>
+          {/* RIGHT COLUMN */}
+          <div style={{ borderLeft: isMobile ? "0" : "1px solid rgba(17,17,17,0.15)", paddingLeft: isMobile ? "0" : "32px", paddingTop: isMobile ? "28px" : "0", borderTop: isMobile ? "1px solid rgba(17,17,17,0.15)" : "none" }}>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "24px" }}>
               {["IoT", "Full Stack", "Product Design", "Research"].map((tag) => (
                 <span key={tag} style={{ fontSize: "0.6rem", fontWeight: 500, color: "#111", border: "1px solid rgba(17,17,17,0.25)", padding: "3px 8px", letterSpacing: "0.04em" }}>
@@ -148,6 +172,7 @@ export default function Work() {
 
       <div style={{ width: "100%", borderTop: "1px solid rgba(17,17,17,0.12)" }} />
 
+      {/* OTHER WORK - LEDGER */}
       <div ref={ledgerRef} className="page-container" style={{ paddingTop: "56px", paddingBottom: "64px" }}>
         <p style={{ fontSize: "0.58rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#9B9486", marginBottom: "40px" }}>
           Other work
@@ -164,20 +189,21 @@ export default function Work() {
                 borderTop: "1px solid rgba(17,17,17,0.12)",
                 padding: "18px 0",
                 display: "flex",
-                alignItems: "baseline",
-                gap: "32px",
+                alignItems: isMobile ? "center" : "baseline",
+                gap: isMobile ? "12px" : "32px",
                 cursor: "pointer",
+                flexWrap: isMobile ? "wrap" : "nowrap",
               }}
-              whileHover={{ x: 8 }}
+              whileHover={!isMobile ? { x: 8 } : {}}
             >
-              <span style={{ fontWeight: 700, fontSize: "1.15rem", color: "#111", minWidth: "80px", flexShrink: 0 }}>
+              <span style={{ fontWeight: 700, fontSize: "1.15rem", color: "#111", minWidth: isMobile ? "auto" : "80px", flexShrink: 0 }}>
                 {project.code}
               </span>
               <span style={{ fontSize: "0.72rem", color: "#9B9486", flexShrink: 0 }}>
                 {project.year}
               </span>
               {!expandedProjects.has(project.code) && (
-                <span style={{ fontSize: "0.76rem", color: "#9B9486", flex: 1, textAlign: "right" }}>
+                <span style={{ fontSize: "0.76rem", color: "#9B9486", flex: isMobile ? "1 0 100%" : "1", textAlign: isMobile ? "left" : "right" }}>
                   {project.tags}
                 </span>
               )}
@@ -192,16 +218,9 @@ export default function Work() {
                   transition={{ duration: 0.3 }}
                   style={{ overflow: "hidden" }}
                 >
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "160px 1fr 240px",
-                      gap: "0",
-                      paddingTop: "32px",
-                      paddingBottom: "32px",
-                    }}
-                  >
-                    <div style={{ paddingRight: "24px" }}>
+                  <div style={isMobile ? { paddingTop: "32px", paddingBottom: "32px" } : { display: "grid", gridTemplateColumns: "160px 1fr 240px", gap: "0", paddingTop: "32px", paddingBottom: "32px" }}>
+                    {/* LEFT */}
+                    <div style={{ paddingRight: isMobile ? "0" : "24px", marginBottom: isMobile ? "28px" : "0" }}>
                       <div
                         style={{
                           background: "#C8391D",
@@ -238,7 +257,8 @@ export default function Work() {
                       </div>
                     </div>
 
-                    <div style={{ borderLeft: "1px solid rgba(17,17,17,0.15)", paddingLeft: "40px", paddingRight: "32px" }}>
+                    {/* CENTER */}
+                    <div style={{ borderLeft: isMobile ? "0" : "1px solid rgba(17,17,17,0.15)", paddingLeft: isMobile ? "0" : "40px", paddingRight: isMobile ? "0" : "32px", paddingTop: isMobile ? "28px" : "0", borderTop: isMobile ? "1px solid rgba(17,17,17,0.15)" : "none" }}>
                       <h3 style={{ fontWeight: 800, fontSize: "clamp(2rem, 3.5vw, 3.2rem)", color: "#111", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "28px", marginTop: 0 }}>
                         {project.code}
                       </h3>
@@ -250,7 +270,8 @@ export default function Work() {
                       </p>
                     </div>
 
-                    <div style={{ borderLeft: "1px solid rgba(17,17,17,0.15)", paddingLeft: "32px" }}>
+                    {/* RIGHT */}
+                    <div style={{ borderLeft: isMobile ? "0" : "1px solid rgba(17,17,17,0.15)", paddingLeft: isMobile ? "0" : "32px", paddingTop: isMobile ? "28px" : "0", borderTop: isMobile ? "1px solid rgba(17,17,17,0.15)" : "none" }}>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "24px" }}>
                         {project.projectTags.map((tag) => (
                           <span key={tag} style={{ fontSize: "0.6rem", fontWeight: 500, color: "#111", border: "1px solid rgba(17,17,17,0.25)", padding: "3px 8px", letterSpacing: "0.04em" }}>

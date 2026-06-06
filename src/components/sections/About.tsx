@@ -1,27 +1,35 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const gridStyles = isMobile
+    ? { display: "block" }
+    : { display: "grid", gridTemplateColumns: "160px 1fr 240px", gap: "0" };
 
   return (
     <section id="about" style={{ background: "#1A1A1A", color: "white" }}>
       <div style={{ width: "100%", height: "3px", background: "#C8391D" }} />
 
       <div ref={ref} className="page-container" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "160px 1fr 240px",
-            gap: "0",
-          }}
-        >
+        <div style={gridStyles}>
           {/* LEFT: rotated label + skills web */}
           <motion.div
-            style={{ paddingRight: "24px" }}
+            style={{ paddingRight: isMobile ? "0" : "24px", marginBottom: isMobile ? "28px" : "0" }}
             initial={{ opacity: 0, x: -16 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5 }}
@@ -49,6 +57,7 @@ export default function About() {
                 marginTop: "28px",
                 width: "100px",
                 height: "100%",
+                maxHeight: isMobile ? "150px" : "auto",
               }}
             >
               {/* Center circle */}
@@ -88,7 +97,7 @@ export default function About() {
 
           {/* CENTER: copy */}
           <motion.div
-            style={{ borderLeft: "1px solid rgba(255,255,255,0.08)", paddingLeft: "40px", paddingRight: "32px" }}
+            style={{ borderLeft: isMobile ? "0" : "1px solid rgba(255,255,255,0.08)", paddingLeft: isMobile ? "0" : "40px", paddingRight: isMobile ? "0" : "32px", paddingTop: isMobile ? "28px" : "0", borderTop: isMobile ? "1px solid rgba(255,255,255,0.08)" : "none" }}
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -116,7 +125,7 @@ export default function About() {
 
           {/* RIGHT: THEN/NOW + AWARDS */}
           <motion.div
-            style={{ borderLeft: "1px solid rgba(255,255,255,0.08)", paddingLeft: "32px" }}
+            style={{ borderLeft: isMobile ? "0" : "1px solid rgba(255,255,255,0.08)", paddingLeft: isMobile ? "0" : "32px", paddingTop: isMobile ? "28px" : "0", borderTop: isMobile ? "1px solid rgba(255,255,255,0.08)" : "none" }}
             initial={{ opacity: 0, x: 16 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -146,7 +155,7 @@ export default function About() {
                 RECOGNITION
               </p>
 
-                            <div style={{ marginBottom: "14px" }}>
+              <div style={{ marginBottom: "14px" }}>
                 <p style={{ fontSize: "0.72rem", fontWeight: 600, color: "white", marginBottom: "2px" }}>
                   Cum Laude
                 </p>
