@@ -14,13 +14,27 @@ interface Experience {
 }
 
 const experiences: Experience[] = [
-  // {
-  //   title: "Multimedia Director",
-  //   org: "Systems Plus Computer College",
-  //   year: "2022 - 2026",
-  //   description: "Led creative direction and production of multimedia content.",
-  //   tags: ["Video Production", "Leadership", "Creative Direction"],
-  // },
+  {
+    title: "Multimedia Director",
+    org: "Systems Plus Computer College",
+    year: "2022 – 2025",
+    description: "Progressed from member to Assistant Director to Director over 3 years, managing a team of 8–10. Planned and executed multimedia coverage for large-scale institutional events with 500+ attendees. Managed simultaneous multi-event coverage under severe resource constraints. Oversaw post-production end-to-end, from raw footage to final edits across all outputs.",
+    tags: ["Video Production", "Team Leadership", "Event Coverage", "Post-Production"],
+  },
+  {
+    title: "Infomercial Champion",
+    org: "Systems Plus Computer College",
+    year: "2023",
+    description: "Won Best Infomercial as Director, Writer & Editor for 'How to Find the Right School.' Demonstrated full production mastery across direction, scriptwriting, and editorial control.",
+    tags: ["Video Direction", "Creative Writing", "Editing"],
+  },
+  {
+    title: "Exemplary Leadership & Mentor Award",
+    org: "Systems Plus Computer College",
+    year: "2022 – 2025",
+    description: "Recognized for 3 years of service with awards for exemplary leadership and mentorship. Mentored junior members and delegated critical tasks under tight timelines while maintaining excellence.",
+    tags: ["Mentorship", "Leadership", "Team Building"],
+  },
 ];
 
 export default function Experiences() {
