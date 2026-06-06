@@ -10,8 +10,9 @@ const otherWork = [
     tags: "React · Vite · Tailwind · Bilingual",
     problem: "Security firm needed a modern, bilingual website to showcase services and handle inquiries.",
     solution: "Built with React (Vite) + Tailwind CSS. Bilingual interface (ENG/FIL) with responsive design. Comprehensive redesign handling daily traffic for commercial security operations.",
-    stat: "326",
+    stat: "396",
     statLabel: "hours OJT completed",
+    statSuffix: "",
     roles: ["Full Stack Developer"],
     projectTags: ["React", "Vite", "Tailwind", "Bilingual"],
     link: "#",
@@ -24,6 +25,7 @@ const otherWork = [
     solution: "ESP32-based fire alarm with 3-sensor verification. Any sensor threshold breach triggers automated voicemail to School Admin; critical levels alert BFP directly.",
     stat: "3",
     statLabel: "sensor verification layer",
+    statSuffix: "",
     roles: ["Project Manager", "Full Stack Developer"],
     projectTags: ["Embedded Systems", "IoT", "Fire Safety"],
     link: "#",
@@ -36,6 +38,7 @@ const otherWork = [
     solution: "PHP Laravel + ESP32-based RFID attendance system with comprehensive admin and professor dashboards. Real-time tracking, reporting, and student management.",
     stat: "100",
     statLabel: "% automated attendance",
+    statSuffix: "%",
     roles: ["Full Stack Developer"],
     projectTags: ["RFID", "Laravel", "PHP", "Attendance System"],
     link: "#",
@@ -48,6 +51,7 @@ const otherWork = [
     solution: "Multi-branch analytics platform using Holt-Winters forecasting. Single dashboard for business owners, data analysts, admins, and corp employees to track performance metrics.",
     stat: "∞",
     statLabel: "scalable to any branch count",
+    statSuffix: "",
     roles: ["Full Stack Developer", "Data Engineer"],
     projectTags: ["Analytics", "Holt-Winters", "Forecasting", "Multi-branch"],
     link: "#",
@@ -241,7 +245,7 @@ export default function Work() {
                       <div style={{ marginTop: "0px" }}>
                         <div style={{ fontWeight: 800, fontSize: "3rem", color: "#111", lineHeight: 1 }}>
                           {project.stat}
-                          <span style={{ color: "#C8391D" }}>{project.stat === "∞" ? "" : "%"}</span>
+                          <span style={{ color: "#C8391D" }}>{project.statSuffix}</span>
                         </div>
                         <p style={{ color: "#9B9486", fontSize: "0.68rem", lineHeight: 1.5, marginTop: "6px" }}>
                           {project.statLabel}
@@ -300,4 +304,4 @@ export default function Work() {
       </div>
     </section>
   );
-} 
+}
