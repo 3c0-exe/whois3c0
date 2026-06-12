@@ -1,3 +1,5 @@
+"use client";
+
 export default function Contact() {
   return (
     <section
@@ -37,6 +39,26 @@ export default function Contact() {
           <p style={{ fontSize: "0.82rem", color: "rgba(17,17,17,0.6)" }}>
             Open to collaboration, freelance, and interesting problems.
           </p>
+        </div>
+
+        {/* Back to top */}
+        <div style={{ marginTop: "48px", display: "flex", justifyContent: "flex-end" }}>
+          <a
+            href="#hero"
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.4"; }}
+            style={{
+              fontSize: "0.55rem",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "#111",
+              textDecoration: "none",
+              opacity: 0.4,
+              transition: "opacity 0.2s",
+            }}
+          >
+            ↑ Top
+          </a>
         </div>
       </div>
     </section>

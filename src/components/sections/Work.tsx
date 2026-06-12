@@ -61,7 +61,7 @@ const otherWork = [
 export default function Work() {
   const ledgerRef = useRef(null);
   const inView = useInView(ledgerRef, { once: true, margin: "-60px" });
-  const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set());
+  const [activeProject, setActiveProject] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -74,13 +74,7 @@ export default function Work() {
   }, []);
 
   const toggleProject = (code: string) => {
-    const newSet = new Set(expandedProjects);
-    if (newSet.has(code)) {
-      newSet.delete(code);
-    } else {
-      newSet.add(code);
-    }
-    setExpandedProjects(newSet);
+    setActiveProject((prev) => (prev === code ? null : code));
   };
 
   const gridStyles = isMobile
@@ -206,15 +200,25 @@ export default function Work() {
               <span style={{ fontSize: "0.72rem", color: "#9B9486", flexShrink: 0 }}>
                 {project.year}
               </span>
-              {!expandedProjects.has(project.code) && (
-                <span style={{ fontSize: "0.76rem", color: "#9B9486", flex: isMobile ? "1 0 100%" : "1", textAlign: isMobile ? "left" : "right" }}>
-                  {project.tags}
-                </span>
-              )}
+              <span style={{ fontSize: "0.76rem", color: "#9B9486", flex: isMobile ? "1 0 100%" : "1", textAlign: isMobile ? "left" : "right" }}>
+                {project.tags}
+              </span>
+              <span
+                style={{
+                  fontSize: "1rem",
+                  flexShrink: 0,
+                  lineHeight: 1,
+                  transition: "transform 0.25s ease, color 0.2s",
+                  transform: activeProject === project.code ? "rotate(45deg)" : "rotate(0deg)",
+                  color: activeProject === project.code ? "#C8391D" : "#9B9486",
+                }}
+              >
+                +
+              </span>
             </motion.div>
 
             <AnimatePresence>
-              {expandedProjects.has(project.code) && (
+              {activeProject === project.code && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}

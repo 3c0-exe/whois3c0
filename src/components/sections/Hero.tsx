@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Hero() {
   return (
     <section
@@ -47,6 +51,20 @@ export default function Hero() {
           Multimedia Director. Lead Dev.<br />
           Keeps ending up somewhere he wasn&apos;t supposed to be — and belonging there.
         </p>
+
+        {/* Scroll cue */}
+        <div style={{ marginTop: "64px" }}>
+          <motion.div
+            animate={{ y: [0, 7, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}
+          >
+            <div style={{ width: "24px", height: "1px", background: "#9B9486" }} />
+            <span style={{ fontSize: "0.55rem", letterSpacing: "0.22em", color: "#9B9486", textTransform: "uppercase" }}>
+              scroll
+            </span>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

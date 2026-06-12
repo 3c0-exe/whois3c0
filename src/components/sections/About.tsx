@@ -56,7 +56,7 @@ export default function About() {
                 { name: "Frontend", level: 85, tech: "React" },
                 { name: "Backend", level: 80, tech: "Node, Laravel" },
                 { name: "Hardware", level: 75, tech: "ESP32, MQTT" },
-              ].map((skill) => (
+              ].map((skill, i) => (
                 <div key={skill.name} style={{ marginBottom: "20px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
                     <p style={{ fontSize: "0.7rem", fontWeight: 600, color: "rgba(255,255,255,0.7)", textTransform: "uppercase", letterSpacing: "0.06em", margin: 0 }}>
@@ -67,13 +67,14 @@ export default function About() {
                     </p>
                   </div>
                   <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.1)", borderRadius: "2px", overflow: "hidden" }}>
-                    <div
+                    <motion.div
+                      initial={{ width: "0%" }}
+                      animate={{ width: inView ? `${skill.level}%` : "0%" }}
+                      transition={{ duration: 0.9, delay: i * 0.15, ease: "easeOut" }}
                       style={{
-                        width: `${skill.level}%`,
                         height: "100%",
                         background: "#C8391D",
                         borderRadius: "2px",
-                        transition: "width 0.6s ease-out",
                       }}
                     />
                   </div>
