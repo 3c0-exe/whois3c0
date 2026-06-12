@@ -121,27 +121,8 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* THEN/NOW */}
-            <div style={{ marginBottom: "32px" }}>
-              <p style={{ fontSize: "0.55rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: "8px" }}>
-                THEN
-              </p>
-              <p style={{ fontWeight: 700, fontSize: "1.4rem", color: "white", lineHeight: 1.3 }}>
-                Multimedia<br />Director
-              </p>
-            </div>
-
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "32px", marginBottom: "32px" }}>
-              <p style={{ fontSize: "0.55rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: "8px" }}>
-                NOW
-              </p>
-              <p style={{ fontWeight: 700, fontSize: "1.4rem", color: "white", lineHeight: 1.3 }}>
-                Full-Stack<br />Lead Dev
-              </p>
-            </div>
-
             {/* AWARDS */}
-            <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "32px", marginBottom: "0" }}>
+            <div>
               <p style={{ fontSize: "0.55rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.3)", textTransform: "uppercase", marginBottom: "12px" }}>
                 RECOGNITION
               </p>
